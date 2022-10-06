@@ -1,0 +1,182 @@
+body {
+  margin: 0;
+}
+
+.color-body {
+  background-color: white;
+  height: 100vh;
+}
+
+.nav-style {
+  height: 90px;
+  width: 1440px;
+  background-color: rgb(206, 205, 205);
+  ;
+}
+
+.logo {
+  height: 72px;
+  width: 78px;
+}
+
+
+
+.search {
+  position: relative;
+}
+.search input {
+  height: 40px;
+  text-indent: 25px;
+  border-radius: 20px;
+}
+.search input:focus {
+  box-shadow: none;
+  border: 2px solid #050505;
+}
+.search .fa-search {
+  position: absolute;
+  top: 12px;
+  left: 16px;
+}
+
+
+
+.card {
+  position: relative;
+  transition: all 0.5s ease-in;
+  cursor: pointer;
+  height: 375px;
+}
+
+.card__image {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border-radius: 5px;
+}
+
+.card__overlay {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 100%;
+  width: 100%;
+  opacity: 0;
+  visibility: none;
+  transition: 0.5s ease;
+  background-color: #d9251c;
+}
+
+.card:hover .card__overlay {
+  opacity: 0.8;
+}
+
+.overlay__text {
+  color: white;
+  font-size: 16px;
+  font-weight: bold;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+
+.font {
+  font-family: "Almarai", sans-serif;
+  font-family: "Tajawal", sans-serif;
+}
+
+.color {
+  color: rgb(206, 205, 205);;
+  background-color: rgb(206, 205, 205);;
+}
+
+.card-detalis {
+  height: 370px;
+  border-radius: 20px;
+  background-color: #f8f8f8;
+}
+.card-story {
+  height: 300px;
+  border-radius: 20px;
+  background-color: #f8f8f8;
+}
+.img-movie {
+  height: 360px;
+  padding: 10px;
+  border-radius: 20px;
+}
+
+.card-text-details {
+  color: #555555;
+  font-family: Tajawal;
+  font-size: 28px;
+  font-weight: bold;
+  letter-spacing: 0;
+  line-height: 49px;
+}
+
+.card-text-story {
+  color: #555555;
+  font-family: Montserrat;
+  font-size: 18px;
+  letter-spacing: 0;
+  line-height: 32px;
+}
+.card-text-title {
+  color: #555555;
+  font-family: Cairo;
+  font-size: 36px;
+  font-weight: bold;
+  letter-spacing: 0;
+  line-height: 49px;
+}
+
+
+
+
+/*  to custom colors ofpagination of bootstrap */
+.pagination {
+  --bs-pagination-padding-x: 0.75rem;
+  --bs-pagination-padding-y: 0.375rem;
+  --bs-pagination-font-size: 1rem;
+  --bs-pagination-color: #d9251c;
+  --bs-pagination-bg: #fff;
+  --bs-pagination-border-width: 1px;
+  --bs-pagination-border-color: #dee2e6;
+  --bs-pagination-border-radius: 0.375rem;
+  --bs-pagination-hover-color: #484848;
+  --bs-pagination-hover-bg: #e9ecef;
+  --bs-pagination-hover-border-color: #dee2e6;
+  --bs-pagination-focus-color: #484848;
+  --bs-pagination-focus-bg: #e9ecef;
+  --bs-pagination-focus-box-shadow: 0 0 0 0.25rem #e2bab8;
+  --bs-pagination-active-color: #fff;
+  --bs-pagination-active-bg: #d9251c;
+  --bs-pagination-active-border-color: #d9251c;
+  --bs-pagination-disabled-color: #6c757d;
+  --bs-pagination-disabled-bg: #fff;
+  --bs-pagination-disabled-border-color: #dee2e6;
+  display: flex;
+  padding-left: 0;
+  list-style: none;
+}
+
+
+
+/*  to custom colors of page-link of bootstrap */
+.page-link {
+  position: relative;
+  display: block;
+  padding: var(--bs-pagination-padding-y) var(--bs-pagination-padding-x);
+  font-size: var(--bs-pagination-font-size);
+  color: #d9251c;
+  text-decoration: none;
+  background-color: var(--bs-pagination-bg);
+  border: var(--bs-pagination-border-width) solid #d9251c;
+  transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+}

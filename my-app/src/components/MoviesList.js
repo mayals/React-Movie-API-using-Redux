@@ -2,16 +2,44 @@ import React from "react";
 import { Row } from "react-bootstrap";
 import CardMovie from "./CardMovie";
 import PaginationCompo from "./PaginationCompo.js"
+import { useSelector , useDispatch } from "react-redux"
+import { useEffect, useState } from "react";
+import {getallMoviesAction} from "../redux/actions/movieAction.js"
 
 
 
 const MoviesList = (props) => {
-  
+
+        const [MoviesState,setMoviesState]=useState([])
+        // const [PagesCountState,setPagesCountState]=useState(0)
+        
+
+        const dispatch = useDispatch();
+
+
+        
+        
+        //  At start bring all Movies
+        useEffect( () => { 
+            dispatch(getallMoviesAction());
+        },[ ] 
+        )
+
+        // state come from moviesReducer
+        const dataMovies = useSelector((state) => state.MoviesState)
+        
+        //  get effect only when the value of dataMovies have changed ..
+        useEffect( () => { 
+            setMoviesState(dataMovies);
+        },[dataMovies] 
+        )
+
+
         return (
 
                 <Row className="mt-3">
 
-                        { props.Movies.length?( props.Movies.map((item)=>{ 
+                        { MoviesState.length?( MoviesState.map((item)=>{ 
                                 return(
                                 
                                         <CardMovie  
@@ -28,9 +56,8 @@ const MoviesList = (props) => {
 
 
 
-                        { props.Movies.length?(<PaginationCompo  
-                                                      getCurrnetPage={props.getCurrnetPage}
-                                                      pageCount={props.pageCount}
+                        { MoviesState.length?(<PaginationCompo  
+                                                      
                                              /> ):null}
                         
        

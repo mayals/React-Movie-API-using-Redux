@@ -1,12 +1,48 @@
 import ReactPaginate from 'react-paginate';      //https://www.npmjs.com/package/react-paginate
 
+import { useSelector , useDispatch } from "react-redux"
+import { useEffect, useState } from "react";
+import {getCurrentPageAction} from "../redux/actions/movieAction.js"
 
 
-const PaginationCompo = ({getCurrnetPage,pageCount}) =>{
+const PaginationCompo = () =>{
+    const [PagesCountState,setPagesCountState]=useState(0)
+    const dispatch = useDispatch();
+
+
+    // state come from moviesReducer
+    const pages = useSelector((state) => state.PagesCountState)
+
+
+
+    //  get pages count at start ..
+    useEffect( () => { 
+        setPagesCountState(pages);
+    },[] 
+    )
+
+    
+    
+    
+
+    // getResponse  by using axios that get CurrnetPage that selected by the current user:
+    const getCurrnetPage = async(page) =>{
+                        dispatch(getCurrentPageAction(page))
+    }
+    
+
+
+
     const handlePageClick = (data) =>{
-                        console.log(data.selected+1)
                         getCurrnetPage(data.selected+1)
     }
+
+
+
+
+
+
+
     return(
         //https://www.npmjs.com/package/react-paginate
         <ReactPaginate
@@ -19,7 +55,7 @@ const PaginationCompo = ({getCurrnetPage,pageCount}) =>{
 
             pageRangeDisplayed={2}                // The range of pages displayed.
 
-            pageCount={pageCount}                 // Required. The total number of pages.
+            pageCount={pages}                 // Required. The total number of pages.
 
             previousLabel="Previous"              // Label for the previous button.
 

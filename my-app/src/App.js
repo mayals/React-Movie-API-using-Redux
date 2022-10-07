@@ -4,13 +4,21 @@ import NavbarComp from "./components/NavbarComp.js"
 import axios from 'axios'
 import { useEffect, useState } from "react";
 import {BrowserRouter , Routes, Route} from "react-router-dom"
-import MovieDetailsComp from "./components/MovieDetailsComp.js";
+import MovieDetailsComp from "./components/MovieDetailsComp.js"
+
+import {getMovieAction} from "./redux/actions/movieAction.js"
+import { useSelector , useDispatch } from "react-redux"
+
+
+
 
 
 const App = () => {
 
         const [Movies,setMovies]=useState([])
         const [pageCount,setpageCount]=useState(0)
+
+        const dispatch = useDispatch();
 
         // getResponse  by using axios that get all movies:
         const getAllMovies = async() =>{
@@ -37,7 +45,8 @@ const App = () => {
                            getAllMovies();
                            console.log(Movies); 
                            // eslint-disable-next-line react-hooks/exhaustive-deps
-                          },[ ] 
+                           dispatch(getMovieAction());
+                        },[ ] 
         )
           
         

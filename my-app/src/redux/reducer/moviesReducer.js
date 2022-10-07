@@ -11,7 +11,7 @@ export const moviesReducer = (state=initialValue , action) =>{
                                                                 switch(action.type){
                                                                         
                                                                     case ALL :
-                                                                        return {MoviesState:action.allMoviesData ,
+                                                                        return { MoviesState:action.allMoviesData ,
                                                                                 PagesCountState:action.totalPagesCount
                                                                         }
 
